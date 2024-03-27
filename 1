@@ -1,0 +1,30 @@
+from appium import webdriver
+from appium.webdriver.common.mobileby import MobileBy
+
+desired_caps = {
+    "platformName": "Android",
+    "deviceName": "emulator-5554",
+    "appPackage": "com.android.calculator2",
+    "appActivity": "com.android.calculator2.Calculator",
+    "automationName": "UiAutomator2"
+}
+
+driver = webdriver.Remote("http://localhost:4723/wd/hub", desired_caps)
+
+driver.find_element(MobileBy.ID, "digit_1").click()
+
+
+driver.find_element(MobileBy.ID, "op_add").click()
+
+driver.find_element(MobileBy.ID, "digit_2").click()
+
+
+driver.find_element(MobileBy.ID, "eq").click()
+
+
+
+result = driver.find_element(MobileBy.ID, "result_final").text
+print(f"Addition 1 + 2 = {result}")
+
+
+driver.quit()
