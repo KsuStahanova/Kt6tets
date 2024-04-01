@@ -1,30 +1,28 @@
 from appium import webdriver
-from appium.webdriver.common.mobileby import MobileBy
 
+\
 desired_caps = {
-    "platformName": "Android",
-    "deviceName": "emulator-5554",
-    "appPackage": "com.android.calculator2",
-    "appActivity": "com.android.calculator2.Calculator",
-    "automationName": "UiAutomator2"
+    "platformName": "iOS",
+    "platformVersion": "9.3",
+    "deviceName": "iPhone 5s",
+    "app": "/path/to/your/app.ipa",
 }
 
 driver = webdriver.Remote("http://localhost:4723/wd/hub", desired_caps)
 
-driver.find_element(MobileBy.ID, "digit_1").click()
+def test_addition_ios():
+    driver.find_element_by_name("Add").click()
 
 
-driver.find_element(MobileBy.ID, "op_add").click()
-
-driver.find_element(MobileBy.ID, "digit_2").click()
-
-
-driver.find_element(MobileBy.ID, "eq").click()
+def test_subtraction_ios():
+    driver.find_element_by_name("Subtract").click()
 
 
+def test_multiplication_ios():
+    driver.find_element_by_name("Multiply").click()
 
-result = driver.find_element(MobileBy.ID, "result_final").text
-print(f"Addition 1 + 2 = {result}")
 
+def test_division_ios():
+    driver.find_element_by_name("Divide").click()
 
 driver.quit()
