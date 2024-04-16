@@ -26,3 +26,36 @@ def test_division_ios():
     driver.find_element_by_name("Divide").click()
 
 driver.quit()
+
+
+#### Test
+from appium import webdriver
+
+desired_caps = {
+    "platformName": "iOS",
+    "platformVersion": "9.3",
+    "deviceName": "iPhone 5s",
+    "app": "/path/to/your/app.ipa",
+}
+
+driver = webdriver.Remote("http://localhost:4723/wd/hub", desired_caps)
+
+def test_addition_ios():
+    driver.find_element_by_name("Add").click()
+
+def test_subtraction_ios():
+    driver.find_element_by_name("Subtract").click()
+
+def test_multiplication_ios():
+    driver.find_element_by_name("Multiply").click()
+
+def test_division_ios():
+    driver.find_element_by_name("Divide").click()
+
+def test_square_root_ios():
+    driver.find_element_by_name("SquareRoot").click()
+
+def test_power_ios():
+    driver.find_element_by_name("Power").click()
+
+driver.quit()
